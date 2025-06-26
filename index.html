@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership Proposal for Government of Odisha</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #ff6b35 100%);
+            color: #333;
+        }
+        
+        .presentation-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 3px solid #ff6b35;
+        }
+        
+        .slide {
+            padding: 50px 80px;
+            min-height: 600px;
+            display: none;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        .government-header {
+            text-align: center;
+            border-bottom: 3px solid #ff6b35;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .emblem {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff6b35, #1e3c72);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .slide-title {
+            font-size: 2.8em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #1e3c72;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .slide-content {
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .capability-card {
+            background: linear-gradient(145deg, #ffffff, #f1f3f4);
+            padding: 35px;
+            border-radius: 10px;
+            border: 2px solid #ff6b35;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .capability-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #ff6b35);
+        }
+        
+        .capability-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+        
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefit-list li {
+            background: linear-gradient(90deg, #e8f4f8, #fff);
+            margin: 15px 0;
+            padding: 20px;
+            border-left: 5px solid #1e3c72;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+        
+        .benefit-list li:hover {
+            background: linear-gradient(90deg, #d4edda, #f8f9fa);
+            transform: translateX(10px);
+            border-left-color: #ff6b35;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(45deg, #1e3c72, #ff6b35);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: #1e3c72;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff3cd, #ffeaa7);
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        
+        .title-slide {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #ff6b35 100%);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .title-slide .slide-title {
+            color: white;
+            font-size: 4em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 2em;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .government-seal {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #1e3c72;
+            border: 5px solid #ff6b35;
+        }
+        
+        .odisha-focus {
+            background: linear-gradient(45deg, #e8f4f8, #fff);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #1e3c72;
+            margin: 20px 0;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 25px 15px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #f0f2f5, #e4e6ea);
+            border: 2px dashed #1e3c72;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #1e3c72;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(45deg, #1e3c72, #ff6b35);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #1e3c72;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-counter" id="slideCounter">1 / 9</div>
+        
+        <!-- Slide 1: Title -->
+        <div class="slide active title-slide">
+            <div class="government-seal">🏛️</div>
+            <h1 class="slide-title">Strategic Partnership Proposal</h1>
+            <p class="subtitle">For the Government of Odisha</p>
+            <p style="font-size: 1.3em; font-style: italic;">"Transforming Odisha Through Technology & Innovation"</p>
+            <p style="font-size: 1.1em; margin-top: 30px;">Empowering Governance • Serving Citizens • Building Future</p>
+        </div>
+        
+        <!-- Slide 2: Vision Alignment -->
+        <div class="slide">
+            <div class="government-header">
+                <div class="emblem">ओ</div>
+                <h1 class="slide-title">Aligned with Odisha's Vision</h1>
+            </div>
+            <div class="slide-content">
+                <div class="odisha-focus">
+                    <p style="font-size: 1.3em; text-align: center; color: #1e3c72; font-weight: bold;">Supporting Hon'ble CM's Vision of Digital Odisha & Mo Sarkar Initiative</p>
+                </div>
+                
+                <div class="image-placeholder">
+                    [Odisha State Map with Development Highlights]
+                </div>
+                
+                <div class="capability-grid">
+                    <div class="capability-card">
+                        <h3>🌾 Agricultural Transformation</h3>
+                        <p>Digital solutions for farmer welfare, crop monitoring, and agricultural productivity enhancement across all 30 districts.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🏭 Industrial Growth</h3>
+                        <p>Technology infrastructure supporting Odisha's industrial corridors and investment facilitation through digital platforms.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🎓 Education Excellence</h3>
+                        <p>Digital learning platforms and educational technology solutions for schools and higher education institutions.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🏥 Healthcare Access</h3>
+                        <p>Telemedicine, health monitoring systems, and medical data management for improved healthcare delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Our Comprehensive Services -->
+        <div class="slide">
+            <div class="government-header">
+                <div class="emblem">⚙️</div>
+                <h1 class="slide-title">Complete Solution Portfolio</h1>
+            </div>
+            <div class="slide-content">
+                <div class="image-placeholder">
+                    [Service Integration Diagram - Government Departments Connected]
+                </div>
+                
+                <div class="capability-grid">
+                    <div class="capability-card">
+                        <h3>🖥️ E-Governance Solutions</h3>
+                        <p>Complete digital transformation of government services, citizen portals, and administrative systems for efficient governance.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>📊 Data Analytics & Intelligence</h3>
+                        <p>Advanced analytics for policy decisions, performance monitoring, and predictive governance insights.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🛡️ Cybersecurity & Compliance</h3>
+                        <p>Robust security frameworks, data protection, and compliance with government regulations and standards.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>📱 Mobile & Web Applications</h3>
+                        <p>Citizen-centric mobile apps, responsive web platforms, and user-friendly government interfaces.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>☁️ Cloud Infrastructure</h3>
+                        <p>Scalable cloud solutions, data center management, and disaster recovery systems for government operations.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🎯 Project Management</h3>
+                        <p>End-to-end project delivery, change management, and strategic consulting for government initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Track Record & Credentials -->
+        <div class="slide">
+            <div class="government-header">
+                <div class="emblem">🏆</div>
+                <h1 class="slide-title">Proven Excellence</h1>
+            </div>
+            <div class="slide-content">
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Government Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">99.8%</div>
+                        <div class="stat-label">Uptime Guarantee</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Services</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                </div>
+                
+                <div class="image-placeholder">
+                    [Client Testimonials & Government Certifications Display]
+                </div>
+                
+                <div class="capability-grid">
+                    <div class="capability-card">
+                        <h3>📜 Government Certifications</h3>
+                        <p>ISO 27001, ISO 9001, CMMI Level 5, and all required government compliance certifications.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🤝 Trusted Partner</h3>
+                        <p>Successfully serving multiple state governments and central ministries with critical IT infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Security & Compliance -->
+        <div class="slide">
+            <div class="government-header">
+                <div class="emblem">🔒</div>
+                <h1 class="slide-title">Security First Approach</h1>
+            </div>
+            <div class="slide-content">
+                <div class="odisha-focus">
+                    <p style="text-align: center; font-size: 1.2em; color: #1e3c72; font-weight: bold;">Complete adherence to Government Security Guidelines & Data Localization Requirements</p>
+                </div>
+                
+                <div class="image-placeholder">
+                    [Security Architecture Diagram - Multi-layer Protection]
+                </div>
+                
+                <div class="capability-grid">
+                    <div class="capability-card">
+                        <h3>🛡️ Advanced Cybersecurity</h3>
+                        <p>Multi-layered security architecture with real-time threat monitoring, incident response, and security audits.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>📋 Regulatory Compliance</h3>
+                        <p>Full compliance with RTI Act, Digital India guidelines, and state-specific data protection requirements.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🏛️ Data Sovereignty</h3>
+                        <p>Complete data localization within India, secure data centers, and government-grade infrastructure protection.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🔍 Audit & Monitoring</h3>
+                        <p>Continuous security monitoring, regular audits, and transparent reporting to government stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 6: Benefits for Odisha -->
+        <div class="slide">
+            <div class="government-header">
+                <div class="emblem">📈</div>
+                <h1 class="slide-title">Transforming Odisha</h1>
+            </div>
+            <div class="slide-content">
+                <div class="image-placeholder">
+                    [Before & After - Digital Transformation Impact Visualization]
+                </div>
+                
+                <ul class="benefit-list">
+                    <li><strong>🚀 Accelerated Development:</strong> Fast-track implementation of digital initiatives supporting Odisha's economic growth and development goals.</li>
+                    <li><strong>👥 Enhanced Citizen Services:</strong> Improved accessibility and efficiency of government services for 4.5 crore citizens of Odisha.</li>
+                    <li><strong>💰 Cost Optimization:</strong> Significant reduction in operational costs while improving service quality and government efficiency.</li>
+                    <li><strong>📊 Data-Driven Governance:</strong> Real-time insights and analytics enabling better policy decisions and resource allocation.</li>
+                    <li><strong>🌐 Digital Inclusion:</strong> Bridging the digital divide and ensuring technology benefits reach rural and tribal areas.</li>
+                    <li><strong>🎯 Measurable Outcomes:</strong> Quantifiable improvements in governance efficiency, citizen satisfaction, and service delivery metrics.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Slide 7: Implementation Strategy -->
+        <div class="slide">
+            <div class="government-header">
+                <div class="emblem">🗺️</div>
+                <h1 class="slide-title">Strategic Implementation</h1>
+            </div>
+            <div class="slide-content">
+                <div class="image-placeholder">
+                    [Project Timeline & Milestone Chart - Phased Approach]
+                </div>
+                
+                <div class="capability-grid">
+                    <div class="capability-card">
+                        <h3>Phase 1: Assessment & Planning</h3>
+                        <p><strong>Duration:</strong> 2-4 weeks<br>Comprehensive analysis of current systems, stakeholder consultations, and detailed project roadmap.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Phase 2: Core Infrastructure</h3>
+                        <p><strong>Duration:</strong> 2-3 months<br>Setup of foundational systems, security frameworks, and essential digital infrastructure.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Phase 3: Service Integration</h3>
+                        <p><strong>Duration:</strong> 3-6 months<br>Department-wise implementation, system integration, and service digitization across key areas.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Phase 4: Full Deployment</h3>
+                        <p><strong>Duration:</strong> 6-12 months<br>Complete rollout, staff training, citizen awareness, and performance optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 8: Investment & ROI -->
+        <div class="slide">
+            <div class="government-header">
+                <div class="emblem">💎</div>
+                <h1 class="slide-title">Value Proposition</h1>
+            </div>
+            <div class="slide-content">
+                <div class="odisha-focus">
+                    <p style="text-align: center; font-size: 1.2em; color: #1e3c72; font-weight: bold;">Transparent Pricing • Maximum Value • Long-term Partnership</p>
+                </div>
+                
+                <div class="image-placeholder">
+                    [ROI Chart - Cost vs Benefits Over Time]
+                </div>
+                
+                <div class="capability-grid">
+                    <div class="capability-card">
+                        <h3>💰 Competitive Investment</h3>
+                        <p>Cost-effective solutions with transparent pricing, flexible payment terms, and budget-friendly implementation.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>📈 High Return on Investment</h3>
+                        <p>Expected 300-500% ROI within 3 years through efficiency gains, cost savings, and improved service delivery.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🔄 Sustainable Growth</h3>
+                        <p>Scalable solutions that grow with Odisha's development, ensuring long-term value and continued benefits.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>🎯 Performance Guarantees</h3>
+                        <p>Service level agreements with measurable KPIs, performance bonuses, and penalty clauses for accountability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 9: Next Steps -->
+        <div class="slide">
+            <div class="government-header">
+                <div class="emblem">🚀</div>
+                <h1 class="slide-title">Let's Begin the Journey</h1>
+            </div>
+            <div class="slide-content">
+                <div class="image-placeholder">
+                    [Partnership Handshake - Government & Technology Integration]
+                </div>
+                
+                <div class="cta-section">
+                    <h2 style="margin-bottom: 30px; font-size: 2.2em;">Ready to Transform Odisha?</h2>
+                    <p style="font-size: 1.3em; margin-bottom: 30px;">Join hands with us to build a digitally empowered Odisha that serves every citizen efficiently and transparently.</p>
+                    
+                    <button class="cta-button">Schedule Detailed Presentation</button>
+                    <button class="cta-button">Request Pilot Project</button>
+                    <button class="cta-button">Begin Partnership Discussion</button>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="font-size: 1.4em; font-weight: bold; color: #1e3c72;">
+                        "साथ चलें, समृद्ध ओडिशा बनाएं"<br>
+                        <span style="font-size: 1.1em; font-style: italic; color: #666;">"Together, Let's Build a Prosperous Odisha"</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            updateCounter();
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        function updateCounter() {
+            document.getElementById('slideCounter').textContent = `${currentSlide + 1} / ${totalSlides}`;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+        
+        // Touch navigation for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) previousSlide();
+        });
+    </script>
+</body>
+</html>
